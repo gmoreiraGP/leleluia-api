@@ -20,4 +20,11 @@ export class UserResolver{
         return this.userService.create(UserMapper.toEntity(input))
     }
     
+    @Mutation(returns => Boolean, {name: 'deleteUser'})
+    async deleteUser(
+        @Args('id') input: string
+    ): Promise<boolean> {
+        return this.userService.delete(input)
+    }
+    
 }
