@@ -14,8 +14,20 @@ export class UserService{
         return this.userRepository.find()
     }
 
+    async findById(id:string): Promise<User>{
+        return this.userRepository.findOne(id)
+    }
+
     async create(input: User): Promise<User> {
         return this.userRepository.save(input)
+    }
+
+    async update(input: User): Promise<User> {
+       await this.userRepository.update(input.id, {
+           email: input.email,
+           password: input.password
+       })
+       return input
     }
 
     async delete(id: string): Promise<boolean> {
