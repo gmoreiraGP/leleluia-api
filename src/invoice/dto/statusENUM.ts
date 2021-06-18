@@ -1,0 +1,5 @@
+export enum Status {
+    SEPARATION='SEPARATION',
+    TRANSIT='TRANSIT',
+    DELIVERED='DELIVERED',
+  }

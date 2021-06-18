@@ -7,6 +7,7 @@ import { UserModule } from './user/user.module'
 import { User } from './user/user.entity'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { ProfileModule } from './profile/profile.module'
+import { InvoiceModule } from './invoice/invoice.module'
 
 @Module({
   imports: [
@@ -26,7 +27,8 @@ import { ProfileModule } from './profile/profile.module'
       autoSchemaFile: 'schema.gql'
     }),
     UserModule,
-    ProfileModule
+    ProfileModule,
+    InvoiceModule
   ],
   controllers: [AppController],
   providers: [AppService]

@@ -8,15 +8,48 @@ type User {
   password: String
 }
 
+type Profile {
+  id: String!
+  firstName: String!
+  lastName: String!
+  bio: String!
+  social: String!
+}
+
+type Invoice {
+  id: String!
+  company: String!
+  cnpj: String!
+  stateRegister: String!
+  invoiceNumber: String!
+  invoiceEmission: DateTime!
+  status: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type Query {
   getAllUsers: [User!]!
   getUserById(id: String!): User!
+  getAllProfiles: [Profile!]!
+  getProfileById(id: String!): Profile!
+  getAllInvoices: [Invoice!]!
+  getInvoiceById(id: String!): Invoice!
 }
 
 type Mutation {
   createUser(input: UserCreateInput!): User!
   updateUser(input: UserUpdateInput!): User!
   deleteUser(id: String!): Boolean!
+  createProfile(input: ProfileCreateDTO!): Profile!
+  updateProfile(input: ProfileUpdateDTO!): Profile!
+  deleteProfile(id: String!): Boolean!
+  createInvoice(input: InvoiceCreateDTO!): Invoice!
+  updateInvoice(input: InvoiceUpdateDTO!): Invoice!
+  deleteInvoice(id: String!): Boolean!
 }
 
 input UserCreateInput {
@@ -29,4 +62,39 @@ input UserUpdateInput {
   email: String!
   password: String!
   profileId: String!
+}
+
+input ProfileCreateDTO {
+  firstName: String!
+  lastName: String!
+  bio: String!
+  social: String!
+  userId: String!
+}
+
+input ProfileUpdateDTO {
+  id: String!
+  firstName: String!
+  lastName: String!
+  bio: String!
+  social: String!
+  userId: String!
+}
+
+input InvoiceCreateDTO {
+  company: String!
+  cnpj: String!
+  stateRegister: String!
+  invoiceNumber: String!
+  invoiceEmission: DateTime!
+}
+
+input InvoiceUpdateDTO {
+  id: String!
+  company: String!
+  cnpj: String!
+  stateRegister: String!
+  invoiceNumber: String!
+  invoiceEmission: DateTime!
+  status: String!
 }
