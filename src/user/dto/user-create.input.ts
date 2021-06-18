@@ -1,10 +1,10 @@
-import { Field, InputType } from "@nestjs/graphql"
+import { Field, InputType } from '@nestjs/graphql'
 
 @InputType()
-export class UserCreateInput{
-    @Field()
-    email: string
-    
-    @Field()
-    password: string
+export class UserCreateInput {
+  @Field()
+  email: string
+
+  @Field()
+  password: string
 }
