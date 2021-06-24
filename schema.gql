@@ -61,7 +61,6 @@ input UserUpdateInput {
   id: String!
   email: String!
   password: String!
-  profileId: String!
 }
 
 input ProfileCreateDTO {

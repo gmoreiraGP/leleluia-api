@@ -10,7 +10,4 @@ export class UserUpdateInput {
 
   @Field()
   password: string
-
-  @Field()
-  profileId: string
 }
